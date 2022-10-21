@@ -13,16 +13,16 @@ public class Sequencia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String[] sequencia;
+	private String[] letters;
 	@Column(name = "is_valid")
 	private boolean isValid;
 
-	public String[] getSequencia() {
-		return sequencia;
+	public String[] getLetters() {
+		return letters;
 	}
 
-	public void setSequencia(String[] sequencia) {
-		this.sequencia = sequencia;
+	public void setLetters(String[] letters) {
+		this.letters = letters;
 	}
 
 	public boolean isValid() {
