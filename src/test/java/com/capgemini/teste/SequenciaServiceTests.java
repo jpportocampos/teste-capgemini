@@ -128,5 +128,35 @@ class SequenciaServiceTests {
 
 		assertEquals(expected, response);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	@DisplayName("Testing invalid sequence by number of characters")
+	void testInvalidByNumber() {
+		String[] letters = new String[]{"DDD", "HDH", "DBD"};
+
+		sequencia.setLetters(letters);
+
+		JSONObject response = this.sequenciaService.validate(sequencia);
+		JSONObject expected = new JSONObject();
+		expected.put("is_valid", false);
+
+		assertEquals(expected, response);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	@DisplayName("Testing invalid sequence by not accepted characters")
+	void testInvalidByChar() {
+		String[] letters = new String[]{"DDDHHB", "HDHUHD", "DBDCHU", "DUBDDH", "DDUBUB", "UDBDUH"};
+
+		sequencia.setLetters(letters);
+
+		JSONObject response = this.sequenciaService.validate(sequencia);
+		JSONObject expected = new JSONObject();
+		expected.put("is_valid", false);
+
+		assertEquals(expected, response);
+	}
 
 }
